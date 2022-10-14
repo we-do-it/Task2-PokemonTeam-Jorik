@@ -1,0 +1,56 @@
+<div class="px-10 py-10 text-gray-800">
+  <div class="flex justify-between align-middle">
+  <h1 class="text-3xl font-bold mb-10">About this pokemon:</h1>
+    <button type="button" class="bg-gray-800 hover:bg-gray-700 px-10 h-12 rounded text-orange-200 font-semibold">Add to team</button>
+  </div>
+  <div class="flex space-x-10">
+    <div class="flex">
+      <p class="font-bold mr-3">Name:</p>
+      <p>{{pokemon.name}}</p>
+    </div>
+    <div class="flex">
+      <p class="font-bold mr-3">Number:</p>
+      <p>{{pokemon.id}}</p>
+    </div>
+  </div>
+  <div class="mt-3">
+    <p class="font-bold mr-3">Sprites:</p>
+    <div class="flex">
+      <img src={{pokemon.sprites.frontSprite}} alt='front sprite' class="w-32 h-32">
+      <img src={{pokemon.sprites.frontSpriteShiny}} alt='front sprite' class="w-32 h-32">
+      <img src={{pokemon.sprites.backSprite}} alt='front sprite' class="w-32 h-32">
+      <img src={{pokemon.sprites.backSpriteShiny}} alt='front sprite' class="w-32 h-32">
+    </div>
+  </div>
+  <div class="mt-3 flex">
+    <p class="font-bold mr-3">Type:</p>
+    <p>{{pokemon.firstType}} {{pokemon.secondType}}</p>
+  </div>
+  <div class="mt-3">
+  <p class="font-bold mr-3">Stats:</p>
+    <div class="flex mt-3">
+      <p class="font-bold mr-3">HP:</p>
+      <p>{{pokemon.stats.hp}}</p>
+    </div>
+    <div class="flex">
+      <p class="font-bold mr-3">ATK:</p>
+      <p>{{pokemon.stats.attack}}</p>
+    </div>
+    <div class="flex">
+      <p class="font-bold mr-3">DEF:</p>
+      <p>{{pokemon.stats.defence}}</p>
+    </div>
+    <div class="flex">
+      <p class="font-bold mr-3">SP.ATK:</p>
+      <p>{{pokemon.stats.specialAttack}}</p>
+    </div>
+    <div class="flex">
+      <p class="font-bold mr-3">SP.DEF:</p>
+      <p>{{pokemon.stats.specialDefence}}</p>
+    </div>
+    <div class="flex">
+      <p class="font-bold mr-3">SPD:</p>
+      <p>{{pokemon.stats.speed}}</p>
+    </div>
+  </div>
+</div>
