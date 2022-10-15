@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Pokemon} from "../models/pokemon.model";
+import {Pokemon} from "../../models/pokemon.model";
+import {Store} from "@ngrx/store";
+import { selectPokemon } from 'src/app/store/pokemon.actions';
 
 @Component({
   selector: 'app-pokemon-item',
@@ -10,9 +12,13 @@ export class PokemonItemComponent implements OnInit {
 
   @Input() pokemon: Pokemon;
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
+  }
+
+  selectPokemon() {
+    this.store.dispatch(selectPokemon({pokemon: this.pokemon}))
   }
 
 }
