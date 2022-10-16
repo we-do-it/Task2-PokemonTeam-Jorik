@@ -7,6 +7,8 @@ import {Pokemon} from "../../models/pokemon.model";
   styleUrls: ['./pokemon-list.component.scss']
 })
 export class PokemonListComponent implements OnInit {
+  filteredPokemons: Pokemon[];
+
   @Input() pokemons: Pokemon[];
 
   constructor() { }

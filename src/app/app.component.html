@@ -1,7 +1,7 @@
 <div class="w-screen h-screen flex">
   <div class="leftSide w-1/2 h-screen bg-white">
-    <app-search-pokemon></app-search-pokemon>
-    <app-pokemon-list [pokemons]="pokemonList"></app-pokemon-list>
+    <app-search-pokemon (inputValue)="filterPokemonByName($event)"></app-search-pokemon>
+    <app-pokemon-list [pokemons]="filteredPokemonList"></app-pokemon-list>
   </div>
   <div class="rightSide w-1/2 h-screen bg-orange-200">
     <app-pokemon-details></app-pokemon-details>

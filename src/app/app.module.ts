@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import {reducers} from "./store/pokemon.reducer";
 import { PokemonTeamComponent } from './components/pokemon-team/pokemon-team.component';
 import { PokemonTeamMemberComponent } from './components/pokemon-team-member/pokemon-team-member.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PokemonTeamMemberComponent } from './components/pokemon-team-member/pok
     StoreModule.forFeature('pokemon', reducers),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, autoPause: true, })
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production, autoPause: true,}),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

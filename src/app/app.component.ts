@@ -11,6 +11,7 @@ import {Stats} from "./models/stats.model";
 })
 export class AppComponent implements OnInit {
   pokemonList: Pokemon[] = [];
+  filteredPokemonList: Pokemon[];
 
   constructor(private appService: AppService) {
   }
@@ -18,7 +19,8 @@ export class AppComponent implements OnInit {
   title = 'Task2-PokemonTeam-Jorik';
 
   ngOnInit() {
-  this.showAllPokemon()
+    this.showAllPokemon()
+    this.filteredPokemonList = this.pokemonList;
   }
 
   showAllPokemon() {
@@ -51,6 +53,12 @@ export class AppComponent implements OnInit {
           response.stats[5].base_stat,
         )
         ));
+    })
+  }
+
+  filterPokemonByName(searchValue: string){
+    this.filteredPokemonList = this.pokemonList.filter((pokemon) => {
+      return pokemon.name.toLowerCase().includes(searchValue.toLowerCase());
     })
   }
 }
