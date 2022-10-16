@@ -12,6 +12,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import {reducers} from "./store/pokemon.reducer";
+import { PokemonTeamComponent } from './components/pokemon-team/pokemon-team.component';
+import { PokemonTeamMemberComponent } from './components/pokemon-team-member/pokemon-team-member.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {reducers} from "./store/pokemon.reducer";
     SearchPokemonComponent,
     PokemonListComponent,
     PokemonItemComponent,
-    PokemonDetailsComponent
+    PokemonDetailsComponent,
+    PokemonTeamComponent,
+    PokemonTeamMemberComponent
   ],
   imports: [
     BrowserModule,

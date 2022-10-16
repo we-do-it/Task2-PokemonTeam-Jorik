@@ -1,0 +1,8 @@
+<div class="px-10 py-10 bg-gray-800 h-1/4 w-1/2 bottom-0 fixed">
+  <h1 class="text-2xl font-bold mb-3 text-white 2xl:mb-5">Pokemon team:</h1>
+  <div class="flex">
+    <div *ngFor="let teamMember of myTeam" class="w-1/6">
+      <app-pokemon-team-member [teamMember]="teamMember"></app-pokemon-team-member>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {select, Store} from "@ngrx/store";
 import {Pokemon} from "../../models/pokemon.model";
-import {selectSelectedPokemon} from "../../store/pokemon.selectors";
+import {pokemonTeamSelector, selectSelectedPokemon} from "../../store/pokemon.selectors";
 import {AppState} from "../../store/states/appState.interface";
+import {addPokemonToTeam} from "../../store/pokemon.actions";
 
 @Component({
   selector: 'app-pokemon-details',
@@ -11,14 +12,24 @@ import {AppState} from "../../store/states/appState.interface";
 })
 export class PokemonDetailsComponent implements OnInit {
   selectedPokemon$: Pokemon | null;
+  myTeam$ : Pokemon[];
 
   constructor(private store: Store<AppState>) {
-    this.store.pipe(select(selectSelectedPokemon)).subscribe(
-      pokemon => this.selectedPokemon$ = pokemon
-    );
   }
 
   ngOnInit(): void {
+    this.store.pipe(select(selectSelectedPokemon)).subscribe(
+      pokemon => this.selectedPokemon$ = pokemon
+    );
+    this.store.pipe(select(pokemonTeamSelector)).subscribe(
+      pokemonTeam => this.myTeam$ = pokemonTeam
+    );
+  }
+
+  addPokemonToTeam() {
+    if(this.selectedPokemon$ !== null && this.myTeam$.length <= 5) {
+      this.store.dispatch(addPokemonToTeam({pokemon: this.selectedPokemon$}));
+    }
   }
 
 }
