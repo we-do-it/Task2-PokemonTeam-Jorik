@@ -29,7 +29,10 @@ export class PokemonDetailsComponent implements OnInit {
   addPokemonToTeam() {
     if(this.selectedPokemon$ !== null && this.myTeam$.length <= 5) {
       this.store.dispatch(addPokemonToTeam({pokemon: this.selectedPokemon$}));
+    }else{
+      alert('You already have 6 pokemon in your team')
     }
+
   }
 
 }

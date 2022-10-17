@@ -25,10 +25,9 @@ export class AppComponent implements OnInit {
 
   showAllPokemon() {
     this.appService.getAllPokemon().subscribe((response: any) => {
-      response.results.forEach((result: any) => {
+      response.results.forEach((result: Pokemon) => {
         this.addPokemonDataToList(result.name);
       })
-      console.log(this.pokemonList);
     });
   }
 

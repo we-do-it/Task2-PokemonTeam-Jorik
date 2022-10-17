@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PokemonItemComponent } from './pokemon-item.component';
+import {provideMockStore} from "@ngrx/store/testing";
 
 describe('PokemonItemComponent', () => {
   let component: PokemonItemComponent;
@@ -8,7 +9,8 @@ describe('PokemonItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PokemonItemComponent ]
+      declarations: [ PokemonItemComponent ],
+      providers: [provideMockStore({})]
     })
     .compileComponents();
 
