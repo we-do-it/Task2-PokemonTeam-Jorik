@@ -31,8 +31,6 @@ describe('PokemonDetailsComponent', () => {
   });
 
   it('should dispatch action when selectedPokemon is not null', function () {
-    //get selectedPokemon from store
-
     const dispatchSpy = spyOn(store, 'dispatch').and.callThrough();
     const AddToTeamButtonSpy = spyOn(component, 'addPokemonToTeam').and.callThrough();
     expect(AddToTeamButtonSpy).not.toHaveBeenCalled();
@@ -46,7 +44,6 @@ describe('PokemonDetailsComponent', () => {
     app.myTeam$ = [];
     button.click();
     expect(AddToTeamButtonSpy).toHaveBeenCalled();
-    //expect dispatched action for addPokemonToTeam
     expect(dispatchSpy).toHaveBeenCalledWith(addPokemonToTeam({pokemon:app.selectedPokemon$}));
   });
 });
